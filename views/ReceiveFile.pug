@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    .controller 
+        h1 Download File
+        form(action="/download", method="POST" class="downloadForm")
+            input(type="text" name="accessCode" id="accessCode" maxlength="6" minlength="6" required)
+            p= message
+            button(type="submit" class="submit") Download

@@ -1,0 +1,154 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background-color: #e5e5e5;
+  color: #444;
+}
+
+.controller {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+  height: 60%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  border: #444 solid 3px;
+  border-radius: 20px;
+  /* box-sizing: border-box; */
+  background-color: #f1faee8a;
+}
+
+.controller h1 {
+  position: relative;
+  bottom: 10%;
+  font-size: 40px;
+}
+/* of uploader */
+.controller h1 {
+  position: relative;
+  bottom: 0;
+  font-size: 40px;
+}
+
+.controller a {
+  text-decoration: none;
+  color: #444;
+  border: #444 solid 2px;
+  background-color: #f1faee;
+  border-radius: 10px;
+  margin: 15px auto;
+  padding: 10px 20px;
+  width: 25%;
+  text-align: center;
+  transition: ease-in-out 0.3s;
+  font-size: 24px;
+}
+
+.controller a:hover {
+  transform: scale(1.1);
+  background-color: #e63946;
+  color: aliceblue;
+}
+
+.uploadForm {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 25vw;
+  justify-content: space-between;
+}
+
+.dragDropArea {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 30vh;
+  margin: 15px 0;
+  padding: 20px 10px;
+  border: #444 dashed 1px;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.dragDropArea.active {
+  border-style: solid;
+}
+
+.dragDropArea img {
+  height: 35px;
+  display: flex;
+  position: relative;
+  filter: invert(23%) sepia(9%) saturate(18%) hue-rotate(336deg) brightness(98%)
+    contrast(87%);
+}
+
+.dragDropArea p {
+  font-size: 14px;
+  font-weight: 100;
+}
+
+.dragDropArea .fileName {
+  display: flex;
+  position: absolute;
+  align-self: center;
+  top: 49%;
+}
+
+.fileInputBtn {
+  font-weight: 300;
+  border: #444 solid 1px;
+  border-radius: 10px;
+  padding: 3px 20px;
+  margin: 0 auto;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.fileInputBtn:hover {
+  color: #457b9d;
+  border-color: #457b9d;
+}
+
+.submit {
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 400;
+  padding: 0 15px;
+  margin: 0 auto;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.submit:hover {
+  color: white;
+  border-color: white;
+  background-color: #457b9d;
+  padding: 0 20px;
+}
+
+/* dowload page */
+
+.downloadForm {
+  display: flex;
+  flex-direction: column;
+  height: 35vh;
+  width: 25vw;
+  justify-content: space-around;
+}
+
+#accessCode {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+}

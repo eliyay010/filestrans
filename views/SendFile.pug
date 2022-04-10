@@ -1,0 +1,18 @@
+extends layout
+
+block append script
+    script(defer src="javascript/index.js") 
+
+block content
+    .controller 
+        h1 Upload File
+        form(action="/upload", method="POST" class="uploadForm" enctype="multipart/form-data")
+            label(for="email") Enter email 
+            input(type="email" placeholder="email" name="email" id="email" required)
+            .dragDropArea 
+                img(src="../icons/file-arrow-up-solid.svg" class="fileIcon" id="fileIcon")
+                p Drop file here
+                p(class="fileName")
+                label(for="fileInput" class="fileInputBtn") browse files 
+                input(type="file" style="display:none;" name="file" id="fileInput" required onchange="javascript:updateChoice()")
+            button(type="submit" class="submit") Uploud
