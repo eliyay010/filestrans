@@ -6,6 +6,7 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const mongoose = require("mongoose");
+const fs = require("fs");
 const path = require("path");
 const server = http.createServer(app);
 const PORT = process.env.PORT || 4000;
@@ -13,13 +14,15 @@ const flash = require("express-flash");
 const session = require("express-session");
 const { router } = require("./routes/router");
 
+// create uploads directory if doesn't exists
+fs.mkdirSync(`${__dirname}/uploads`, { recursive: true });
+
 app.use(express.static("./uploads"));
 app.use(express.static(path.join(`${__dirname}/public`)));
 app.set("view engine", "pug");
 app.set("views", path.join(`${__dirname}/views`));
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
-
 app.use(
   session({
     cookie: { maxAge: 5000 },
