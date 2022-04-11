@@ -2,15 +2,15 @@ const { Files, filesSevice } = require("../models/files");
 const { logService } = require("../models/logs");
 const express = require("express");
 const ip = require("ip");
+const { sendMail, sendMailDownload } = require("../services/mail");
 
 class Controller {
   index(req, res) {
     res.render("index", { title: "Home" });
   }
 
-  sendFile_get(req, res, next) {
+  sendFile_get(req, res) {
     res.render("sendFile", { title: "Upload Page" });
-    next();
   }
 
   receiveFile_get(req, res) {
@@ -29,6 +29,7 @@ class Controller {
         aCode
       );
       logService.newUploadLog(req.body.email, req.file.filename);
+      sendMail(req.body.email, aCode);
       return res.render("accessCodePage", {
         title: "Code Page",
         accessCode: aCode,
@@ -44,6 +45,7 @@ class Controller {
       }
       let userIP = ip.address();
       logService.newDownLoadLog(userIP, file.fileName);
+      sendMailDownload(file.senderEmail, userIP, file.fileName);
       return res.download(file.filePath, (err) => {
         if (err) {
           req.flash("msg", "Error: Something went wrong please try agian..");

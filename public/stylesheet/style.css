@@ -6,107 +6,127 @@ body {
   height: 100%;
 }
 body {
-  margin: 0;
-  background-color: #e5e5e5;
-  color: #444;
+  background-image: url("../icons/27240.jpg");
+  background-position: center;
+  background-size: cover;
+  color: #fafafa;
 }
 
-.controller {
+.container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 20%;
-  left: 25%;
-  height: 60%;
-  width: 50%;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+  height: 80vh;
+  width: 50vw;
+  padding: 10px;
   align-items: center;
   justify-content: center;
-  border: #444 solid 3px;
-  border-radius: 20px;
-  /* box-sizing: border-box; */
-  background-color: #f1faee8a;
-}
-
-.controller h1 {
-  position: relative;
-  bottom: 10%;
-  font-size: 40px;
-}
-/* of uploader */
-.controller h1 {
-  position: relative;
-  bottom: 0;
-  font-size: 40px;
-}
-
-.controller a {
-  text-decoration: none;
-  color: #444;
   border: #444 solid 2px;
-  background-color: #f1faee;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4) 10%,
+    rgba(255, 255, 255, 0.6) 20%,
+    rgba(255, 255, 255, 0.3) 50%
+  );
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 3vw;
+}
+
+.container h2 {
+  text-align: center;
+  font-size: 2.5vw;
+  font-weight: 800;
+}
+
+.container a {
+  text-decoration: none;
+  color: #373737;
+  border: #373737 solid 1px;
+  background: none;
   border-radius: 10px;
   margin: 15px auto;
   padding: 10px 20px;
   width: 25%;
   text-align: center;
+  font-size: 2vw;
   transition: ease-in-out 0.3s;
-  font-size: 24px;
 }
 
-.controller a:hover {
-  transform: scale(1.1);
-  background-color: #e63946;
-  color: aliceblue;
+.container a:hover {
+  border-color: #fbb304;
+  color: #fbb304;
 }
 
 .uploadForm {
   display: flex;
   flex-direction: column;
+  position: relative;
   height: 40vh;
   width: 25vw;
   justify-content: space-between;
 }
 
-.dragDropArea {
+.uploadForm .email {
+  font-size: 1.3vw;
+  color: #fafafa;
+}
+
+.emailFeild {
+  font-size: 1.1vw;
+  border-color: #fafafa;
+  color: #fafafa;
+  background: none;
+  outline: none;
+}
+
+.uploadForm .dragDropArea {
   display: flex;
   flex-direction: column;
   position: relative;
   height: 30vh;
   margin: 15px 0;
   padding: 20px 10px;
-  border: #444 dashed 1px;
+  border: #373737 dashed 1px;
   border-radius: 10px;
   text-align: center;
+  align-items: center;
   justify-content: space-between;
 }
 
 .dragDropArea.active {
-  border-style: solid;
+  border: #fbb304 solid 1px;
 }
 
 .dragDropArea img {
-  height: 35px;
   display: flex;
   position: relative;
+  width: 2vw;
   filter: invert(23%) sepia(9%) saturate(18%) hue-rotate(336deg) brightness(98%)
     contrast(87%);
 }
 
 .dragDropArea p {
-  font-size: 14px;
+  font-size: 1vw;
   font-weight: 100;
 }
 
 .dragDropArea .fileName {
   display: flex;
-  position: absolute;
-  align-self: center;
-  top: 49%;
+  position: relative;
+  text-align: center;
 }
 
 .fileInputBtn {
+  font-size: 1.3vw;
   font-weight: 300;
-  border: #444 solid 1px;
+  border: #373737 solid 1px;
   border-radius: 10px;
   padding: 3px 20px;
   margin: 0 auto;
@@ -115,26 +135,27 @@ body {
 }
 
 .fileInputBtn:hover {
-  color: #457b9d;
-  border-color: #457b9d;
+  color: #fbb304;
+  border-color: #fbb304;
 }
 
 .submit {
   width: fit-content;
-  font-size: 20px;
+  background: none;
+  color: #373737;
+  font-size: 2vw;
   font-weight: 400;
   padding: 0 15px;
   margin: 0 auto;
+  border: #373737 solid 1px;
   border-radius: 5px;
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
 .submit:hover {
-  color: white;
-  border-color: white;
-  background-color: #457b9d;
-  padding: 0 20px;
+  color: #fbb304;
+  border-color: #fbb304;
 }
 
 /* dowload page */
@@ -147,8 +168,18 @@ body {
   justify-content: space-around;
 }
 
-#accessCode {
+.codeFeild {
+  font-size: 1.8vw;
   text-align: center;
-  font-size: 26px;
   font-weight: 800;
+  background: none;
+  border-color: #fafafa;
+  color: #fafafa;
+  outline: none;
+}
+
+.message {
+  font-size: 1.2vw;
+  color: red;
+  text-align: center;
 }

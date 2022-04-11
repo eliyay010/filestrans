@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const debug = require("debug")("FILESTRANS:server");
 const express = require("express");
 const app = express();
@@ -8,11 +11,8 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 4000;
 const flash = require("express-flash");
 const session = require("express-session");
-
 const { router } = require("./routes/router");
 
-const dbURI =
-  "mongodb+srv://any1:nodejs123456@nodetuts.h71vm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 app.use(express.static("./uploads"));
 app.use(express.static(path.join(`${__dirname}/public`)));
 app.set("view engine", "pug");
@@ -23,7 +23,7 @@ app.use(flash());
 app.use(
   session({
     cookie: { maxAge: 5000 },
-    secret: "sl", //  change secrets..
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
   })
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
   next(res.status(404).render("404", { title: "Page Not Found" }));
 });
 
-mongoose.connect(dbURI).then(() => {
+mongoose.connect(process.env.dbURI).then(() => {
   server.listen(PORT);
   server.on("error", onError);
   server.on("listening", onListening);

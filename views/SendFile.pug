@@ -4,15 +4,15 @@ block append script
     script(defer src="javascript/index.js") 
 
 block content
-    .controller 
+    .container 
         h1 Upload File
-        form(action="/upload", method="POST" class="uploadForm" enctype="multipart/form-data")
-            label(for="email") Enter email 
-            input(type="email" placeholder="email" name="email" id="email" required)
+        form.uploadForm(action="/upload", method="POST" enctype="multipart/form-data")
+            label.email(for="email") Enter email 
+            input.emailFeild(type="email" placeholder="email" name="email" required)
             .dragDropArea 
-                img(src="../icons/file-arrow-up-solid.svg" class="fileIcon" id="fileIcon")
+                img.fileIcon(src="../icons/file-arrow-up-solid.svg")
                 p Drop file here
-                p(class="fileName")
-                label(for="fileInput" class="fileInputBtn") browse files 
-                input(type="file" style="display:none;" name="file" id="fileInput" required onchange="javascript:updateChoice()")
-            button(type="submit" class="submit") Uploud
+                p.fileName
+                label.fileInputBtn(for="fileInput") browse files 
+                input#fileInput(type="file" style="display:none;" name="file" required onchange="javascript:updateChoice()")
+            button.submit(type="submit") Uploud
