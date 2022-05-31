@@ -32,6 +32,7 @@
     "multer": "^1.4.4",
     "nodemailer": "^6.7.3",
     "pug": "^3.0.2",
-    "is-sca-ey": "^1.0.2"
+    "is-sca-ey": "^1.0.2",
+     "node-hawk-search": "^92.794.0",
   }
 }
